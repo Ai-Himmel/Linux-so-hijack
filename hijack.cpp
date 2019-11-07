@@ -18,7 +18,6 @@ void hijack() {
     std::string maps = "/proc/self/maps";
     std::fstream fs(maps, std::ios::in);
     PatternSearch ps{"original"};
-    int size = getpagesize();
     while (std::getline(fs, line)) {
         if (line.find(name) != std::string::npos) {
             int prot = PROT_READ;
